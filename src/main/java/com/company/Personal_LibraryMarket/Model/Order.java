@@ -1,0 +1,43 @@
+//Allohim ilmimni ziyoda qilgin!!
+
+package com.company.Personal_LibraryMarket.Model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+import java.util.Set;
+
+@Getter
+@Setter
+@Entity
+@Table(name = ("orders"))
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "order_seq_id")
+    @SequenceGenerator(name = "order_seq_id", sequenceName = "order_seq_id", allocationSize = 1)
+    @Column(name = ("order_id"))
+    private Integer orderId;
+    private Integer total;
+    private String description;
+
+    @Column(name = ("user_id"))
+    private Integer userId;
+    @ManyToOne
+    @JoinColumn(name = ("user_id"), insertable = false, updatable = false)
+    private User user;
+
+    @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
+    private Set<Order_Book> orderBook;
+
+    @Column(name = ("created_at"))
+    private LocalDateTime createdAt;
+    @Column(name = ("updated_at"))
+    private LocalDateTime updatedAt;
+    @Column(name = ("deleted_at"))
+    private LocalDateTime deletedAt;
+
+
+}

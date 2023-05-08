@@ -1,0 +1,42 @@
+Git nima?  => Version Control System (VCS) => versiya Boshqarish Tizimi.
+Git        => bu localni ishlashni uchun xizmat qiladi.
+Git bash programmasini ornatamiz va unda ishash uchun kerakli bo`lgan sozlarni organib olamiz.
+
+Asosiy buyroqlari.
+cd <papka nomi> (change directory) => komanda orqali biron falylarni ichiga kirish mumkin.
+cd ..      => bu esa osha fayldan bitta orqaga chiqish uchun xizmat qiladi.
+ls         => bu turgan papkamizda qaysi file lar borligini korsatadi.
+mkdir      => bu turgan joyimizga yangi file ochish uchun xizmat qiladi.
+start .    => shuni komandani yozsak bizga turgan file mizni ochib beradi.
+
+Config qiladigan buyruqlari.
+git ga userName yoki email kiritish yoki yaratish uchun sozlar.
+git config --list                        => git ni configiratsiya qilingan narsalarni korasatadi.
+git config user.name                     => bu git foydalanuvchisini userName korsatadi.
+git config user.email                    => bu esa git ulangan email ni korsatadi.
+git config --global user.name <userName> => shu bilan git ga userName qoshsa boladi.
+git config --global user.email <Email>   => bu orqali esa email kiritiladi.
+
+ctrl+L bilan git oynasi tepaga surib boshatib olish mumkin.
+
+git da loyiha yaratish komandalari.
+
+git init                    => bu loyihani boshlashda beriladigan komanda. buni faqat bir marta ishalatiladi.
+git status                  =>  bu git da yaratilgan file dagi ozgartirishlarni chiqarib beradi.
+touch <file nomi va turini yoziladi> => bu orqali file ichiga biz xohlagan turimizda file ochib beradi.
+rm (remove) <file nomi>     => yaratilgan file larni ochirib yuboradi.
+git add <file nomi>         => bu holatda file ni bittasi git ga qoshish uchun navbatga qoyadi.
+git add .                   => bu esa ozgargan barcha file larni navbatga qoyadi.
+git commit -m "commit"      => git ga commit yozib qowiw uchun xizmat qiladi.
+git log                     => bu buyruq biz nechta lohiyalar bilan ishlayapmiz va qaysi loyihada
+                               ishlayotganimizni korsatib beradi.
+git checkout .<file nomi >  => kiritilgan ozgarishlar kerak bolmasa uni eski holatga qaytaradi.
+git reset . yoki <file nomi> => add orqali navbatga qoyilgan ozgarishlarni ozgartirilgan holatga qaytaradi.
+git branch                  => bu biz yaratgan loyihamizni qolganlar ham ishlasha alohida filial ochish mumkin.
+git branch <nom>            => git yana bitta branch yaratadi.
+git checkout <branch nomi>  => bu esa yangi branch ga otkazadi.
+git merge                   => bu branch larni biriga qoshish uchun xizmat qiladi.
+
+
+Boldi dhu bilan Git ning asosiy komandlarini korib chiqdik.
+
