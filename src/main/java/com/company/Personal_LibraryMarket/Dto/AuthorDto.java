@@ -16,7 +16,7 @@ public class AuthorDto {
     private String Name;
     private String Surname;
     private Integer age;
-    private Integer authorBooksId;
+    private Integer authorBookId;
     private Book authorBooks;
 
 }

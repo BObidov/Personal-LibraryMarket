@@ -16,7 +16,7 @@ public class PublisherDto {
     private Integer publisherId;
     private LocalDateTime publisher;
     private String location;
-    private Integer publisherBooksId;
+    private Integer publisherBookId;
     private Book publisherBooks;
 
 }

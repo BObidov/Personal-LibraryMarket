@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,10 +25,10 @@ public class UserDto {
     private LocalDate birthDate;
     private String phoneNumber;
     private Gender genders;
-    private Integer cardsId;
-    private Card cards;
-    private Integer user_ordersId;
-    private Order userOrders;
+    private Integer cardId;
+    private Set<Card> cards;
+    private Integer user_orderId;
+    private Set<Order> userOrders;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;

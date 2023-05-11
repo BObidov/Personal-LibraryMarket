@@ -14,9 +14,9 @@ import lombok.Setter;
 public class Order_BookDto {
 
     private Integer order_bookId;
-    private Integer ordersId;
+    private Integer orderId;
     private Order orders;
-    private Integer booksId;
+    private Integer bookId;
     private Book books;
 
 }

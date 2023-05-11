@@ -19,7 +19,7 @@ public class Order_Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "order_book_seq_id")
     @SequenceGenerator(name = "order_book_seq_id", sequenceName = "order_book_seq_id", allocationSize = 1)
     @Column(name = ("order_book_id"))
-    private Integer order_bookId;
+    private Integer orderBookId;
 
     @Column(name = ("order_id"))
     private Integer orderId;

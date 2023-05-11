@@ -16,6 +16,6 @@ public class ImageDto {
     private String path;
     private String type;
     private String token;
-    private Integer image_booksId;
+    private Integer image_bookId;
     private Book imageBooks;
 }

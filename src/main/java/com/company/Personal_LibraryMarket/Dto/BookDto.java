@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,7 +25,7 @@ public class BookDto {
     private Integer imageId;
     private Image images;
     private Integer goalsId;
-    private Goals goals;
+    private Set<Goals> goals;
     private Integer publisherId;
     private Publisher publishers;
     private Integer order_bookId;
