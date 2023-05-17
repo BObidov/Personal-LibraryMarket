@@ -12,26 +12,30 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table (name = ("cards"))
+@Table (name = "cards")
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = ("card_id"))
+    @Column(name = "card_id")
     private Integer cardId;
-    @Column(name = ("card_number"))
-    private String cardNumber;
-    @Column(name = ("card_name"))
+
+    @Column(name = "card_name")
     private String cardName;
-    @Column(name = ("user_id"))
+
+    @Column(name = "card_number")
+    private String cardNumber;
+
+    @Column(name = "user_id", insertable = false, updatable = false)
     private Integer userId;
-    @ManyToOne
-    @JoinColumn(name = ("user_id"), insertable = false, updatable = false)
+    //Many card one user
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
-    @Column(name = ("created_at"))
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = ("updated_at"))
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @Column(name = ("deleted_at"))
+    @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 }

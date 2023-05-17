@@ -12,19 +12,19 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = ("publishers"))
+@Table(name = "publishers")
 public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = ("publisher_id"))
+    @Column(name = "publisher_id")
     private Integer publisherId;
     private LocalDateTime publisher;
     private String location;
 
-    @Column(name = ("publisher_book_id"))
+    @Column(name = "publisher_book_id")
     private Integer publisherBookId;
-    @OneToOne(mappedBy = "publisher")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "publisher")
     private Book publisherBook;
 
 }

@@ -31,7 +31,7 @@ public class OrderService {
             return ResponseDto.<OrderDto>builder()
                     .success(true)
                     .message("Order successful created and save in database")
-                    .data(this.orderMapper.toDto(order))
+                    .data(this.orderMapper.toDtoForPostMethod(order))
                     .build();
         }catch (Exception o) {
             return ResponseDto.<OrderDto>builder()
@@ -52,7 +52,7 @@ public class OrderService {
         return ResponseDto.<OrderDto>builder()
                 .success(true)
                 .message("Order malumotlari: ")
-                .data(this.orderMapper.toDto(optional.get()))
+                .data(this.orderMapper.toDtoForGetMethod(optional.get()))
                 .build();
     }
 
@@ -73,7 +73,7 @@ public class OrderService {
         return ResponseDto.<OrderDto>builder()
                 .success(true)
                 .message("Order malumotlari yangilandi va database ga saqlandi.")
-                .data(this.orderMapper.toDto(order))
+                .data(this.orderMapper.toDtoForPostMethod(order))
                 .build();
     }
 
@@ -90,7 +90,7 @@ public class OrderService {
         return ResponseDto.<OrderDto>builder()
                 .success(true)
                 .message("Order malumotlari ochirildi!")
-                .data(this.orderMapper.toDto(optional.get()))
+                .data(this.orderMapper.toDtoForGetMethod(optional.get()))
                 .build();
     }
 

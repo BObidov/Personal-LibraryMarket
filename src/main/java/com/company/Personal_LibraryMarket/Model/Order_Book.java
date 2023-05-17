@@ -12,22 +12,21 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = ("order_books"))
+@Table(name = "order_books")
 public class Order_Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "order_book_seq_id")
-    @SequenceGenerator(name = "order_book_seq_id", sequenceName = "order_book_seq_id", allocationSize = 1)
-    @Column(name = ("order_book_id"))
+    @Column(name = "order_book_id")
     private Integer orderBookId;
 
-    @Column(name = ("order_id"))
+    @Column(name = "order_id", insertable = false, updatable = false)
     private Integer orderId;
-    @ManyToOne
-    @JoinColumn(name = ("order_id"), insertable = false, updatable = false)
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
     private Order order;
 
-    @OneToMany(mappedBy = "order_bookId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "orderBook")
     private Set<Book> book;
 
 }

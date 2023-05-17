@@ -6,44 +6,42 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table (name = ("users"))
+@Table (name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(generator = "user_seq_id")
-    @SequenceGenerator(name = "user_seq_id", sequenceName = "user_seq_id", allocationSize = 1)
-    @Column(name = ("user_id"))
+    @Column(name = "user_id")
     private Integer userId;
+    @Column(name = "name")
     private String name;
-    private String surname;
-    private String email;
+    @Column(name = "surname")
+    private String surName;
+    private String email;               //unique
     private String password;
-    @Column(name = ("birth_date"))
-    private LocalDate birthDate;
-    @Column(name = ("phone_number"))
-    private String phoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;         //unique
+    private LocalDateTime birthdate;
 
-    @Enumerated(value = EnumType.STRING)
+    @OneToMany(mappedBy = "user")
+    private Set<Card> cards;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Order> orders;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
-    private Set<Card> card;
-
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
-    private Set<Order> userOrder;
-
-    @Column(name = ("created_at"))
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = ("updated_at"))
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @Column(name = ("deleted_at"))
+    @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
 }

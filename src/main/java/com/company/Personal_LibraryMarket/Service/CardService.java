@@ -31,7 +31,7 @@ public class CardService {
             return ResponseDto.<CardDto>builder()
                     .success(true)
                     .message("Card successful created and save in database")
-                    .data(this.cardMapper.toDto(card))
+                    .data(this.cardMapper.toDtoForPostMethod(card))
                     .build();
         }catch (Exception c){
             return ResponseDto.<CardDto>builder()
@@ -52,7 +52,7 @@ public class CardService {
         return ResponseDto.<CardDto>builder()
                 .success(true)
                 .message("Card maulomotlari database dan olib kelindi.")
-                .data(this.cardMapper.toDto(optional.get()))
+                .data(this.cardMapper.toDtoForGetMethod(optional.get()))
                 .build();
     }
 
@@ -73,7 +73,7 @@ public class CardService {
         return ResponseDto.<CardDto>builder()
                 .success(true)
                 .message("Card successful updated and save in database!")
-                .data(this.cardMapper.toDto(card))
+                .data(this.cardMapper.toDtoForPostMethod(card))
                 .build();
 
     }
@@ -91,7 +91,7 @@ public class CardService {
         return ResponseDto.<CardDto>builder()
                 .success(true)
                 .message("Card malumotlari topildi va ochirildi!")
-                .data(this.cardMapper.toDto(optional.get()))
+                .data(this.cardMapper.toDtoForGetMethod(optional.get()))
                 .build();
 
     }

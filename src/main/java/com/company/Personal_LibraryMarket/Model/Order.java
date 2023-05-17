@@ -12,31 +12,30 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = ("orders"))
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "order_seq_id")
-    @SequenceGenerator(name = "order_seq_id", sequenceName = "order_seq_id", allocationSize = 1)
     @Column(name = ("order_id"))
     private Integer orderId;
     private Integer total;
     private String description;
 
-    @Column(name = ("user_id"))
+    @Column(name = "user_id", insertable = false, updatable = false)
     private Integer userId;
-    @ManyToOne
-    @JoinColumn(name = ("user_id"), insertable = false, updatable = false)
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order")
     private Set<Order_Book> orderBook;
 
-    @Column(name = ("created_at"))
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = ("updated_at"))
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-    @Column(name = ("deleted_at"))
+    @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
 
